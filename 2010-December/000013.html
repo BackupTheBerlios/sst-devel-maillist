@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Sst-devel] pychecker cleanup is finished
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sst-devel/2010-December/index.html" >
+   <LINK REL="made" HREF="mailto:sst-devel%40lists.berlios.de?Subject=Re%3A%20%5BSst-devel%5D%20pychecker%20cleanup%20is%20finished&In-Reply-To=%3C4D070F17.8040807%40aknet.ru%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000022.html">
+   <LINK REL="Next"  HREF="000014.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Sst-devel] pychecker cleanup is finished</H1>
+    <B>Stas Sergeev</B> 
+    <A HREF="mailto:sst-devel%40lists.berlios.de?Subject=Re%3A%20%5BSst-devel%5D%20pychecker%20cleanup%20is%20finished&In-Reply-To=%3C4D070F17.8040807%40aknet.ru%3E"
+       TITLE="[Sst-devel] pychecker cleanup is finished">stsp at aknet.ru
+       </A><BR>
+    <I>Tue Dec 14 07:30:47 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000022.html">[Sst-devel] In case anyone's listening...
+</A></li>
+        <LI>Next message: <A HREF="000014.html">[Sst-devel] pychecker cleanup is finished
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>No idea if this was delivered to you, so reposting to ML.
+
+07.12.2010 05:40, Eric Raymond wrote:
+&gt;<i> pychecker cleanup is finished. I think you'll find the instrance of death typos
+</I>&gt;<i> is greatly reduced.
+</I>Just started the game:
+---
+Traceback (most recent call last):
+   File &quot;./sst.py&quot;, line 6330, in &lt;module&gt;
+     setup()
+   File &quot;./sst.py&quot;, line 5402, in setup
+     if not welcoming(w) or w in game.state.kcmdr:
+   File &quot;./sst.py&quot;, line 419, in welcoming
+     return iq.valid_Quadrant() and \
+AttributeError: Coord instance has no attribute 'valid_Quadrant'
+---
+
+There are still no notification messages btw. :(
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000022.html">[Sst-devel] In case anyone's listening...
+</A></li>
+	<LI>Next message: <A HREF="000014.html">[Sst-devel] pychecker cleanup is finished
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sst-devel">More information about the Sst-devel
+mailing list</a><br>
+</body></html>

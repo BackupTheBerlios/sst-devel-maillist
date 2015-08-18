@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Sst-devel] first contact with sst devel mail list...
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sst-devel/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:sst-devel%40lists.berlios.de?Subject=Re%3A%20%5BSst-devel%5D%20first%20contact%20with%20sst%20devel%20mail%20list...&In-Reply-To=%3CAANLkTi%3Dh69LCw43uDGWijivCBJ_uJg6xW_extZW-NY0K%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000024.html">
+   <LINK REL="Next"  HREF="000026.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Sst-devel] first contact with sst devel mail list...</H1>
+    <B>Javier Novoa</B> 
+    <A HREF="mailto:sst-devel%40lists.berlios.de?Subject=Re%3A%20%5BSst-devel%5D%20first%20contact%20with%20sst%20devel%20mail%20list...&In-Reply-To=%3CAANLkTi%3Dh69LCw43uDGWijivCBJ_uJg6xW_extZW-NY0K%40mail.gmail.com%3E"
+       TITLE="[Sst-devel] first contact with sst devel mail list...">jstitch at gmail.com
+       </A><BR>
+    <I>Wed Mar 16 16:48:26 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000024.html">[Sst-devel] first contact with sst devel mail list...
+</A></li>
+        <LI>Next message: <A HREF="000026.html">[Sst-devel] first contact with sst devel mail list...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Mar 16, 2011 at 12:28 AM, Stas Sergeev &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sst-devel">stsp at aknet.ru</A>&gt; wrote:
+
+&gt;<i> 16.03.2011 00:33, Javier Novoa wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> I finally found the mailing list (I'm new at berlios, sorry), and now I
+</I>&gt;&gt;<i> give this a try,
+</I>&gt;&gt;<i> to see where can I send the patch for review...
+</I>&gt;&gt;<i>
+</I>&gt;<i> Proceed. :)
+</I>&gt;<i>
+</I>
+The bug I found happens when you quit the game and then answer 'yes' to the
+question 'do you want to play again'?.
+After answering the configuration questions, the game just halts and doesn't
+begins the new game.
+
+The solution I post here is just the missing initializations at the setup()
+method.
+In the original C code, I found that this things get correctly initialized
+but they are missing in the sst.py code ...
+
+diff --git a/sst.py b/sst.py
+index 857f2b0..2b654e1 100755
+--- a/sst.py
++++ b/sst.py
+@@ -5335,10 +5335,21 @@ def setup():
+     game.nkinks = game.nhelp = game.casual = game.abandoned = 0
+     game.iscate = game.resting = game.imine = game.icrystl = game.icraft =
+False
+     game.isatb = game.state.nplankl = 0
+-    game.state.starkl = game.state.basekl = 0
++    game.state.starkl = game.state.basekl = game.state.nworldkl = 0
+     game.iscraft = &quot;onship&quot;
+     game.landed =
+False
+
+     game.alive =
+True
+
++
+
++    # the
+galaxy
+
++    game.state.galaxy = fill2d(GALSIZE, lambda i_unused, j_unused:
+Quadrant())
+
++    # the
+starchart
+
++    game.state.chart = fill2d(GALSIZE, lambda i_unused, j_unused:
+Page())
+
++
+
++    game.state.planes = []      # Planet
+information
+
++    game.state.baseq = []      # Base quadrant
+coordinates
+
++    game.state.kcmdr = []      # Commander quadrant
+coordinates
+
++    game.statekscmdr = Coord() # Supercommander quadrant
+coordinates
+
++
+
+     # Starchart is functional but we've never seen it
+     game.lastchart = FOREVER
+     # Put stars in the galaxy
+
+
+---
+Javier Novoa C.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sst-devel/attachments/20110316/fbcb5641/attachment.html">https://lists.berlios.de/pipermail/sst-devel/attachments/20110316/fbcb5641/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000024.html">[Sst-devel] first contact with sst devel mail list...
+</A></li>
+	<LI>Next message: <A HREF="000026.html">[Sst-devel] first contact with sst devel mail list...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sst-devel">More information about the Sst-devel
+mailing list</a><br>
+</body></html>

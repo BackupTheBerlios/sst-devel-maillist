@@ -1,0 +1,27 @@
+From scott at wolchok.org  Tue May 21 05:23:27 2013
+From: scott at wolchok.org (Scott Wolchok)
+Date: Mon, 20 May 2013 20:23:27 -0700
+Subject: [Sst-devel] Patch for killing supercommander by supernova
+Message-ID: <CAMrm7HOw7HAxu2Dd3hiDcL4EJv7iRzhSNJdc4QVasoKeWCx9Rg@mail.gmail.com>
+
+Hi, I ran across a bug where killing the supercommander with a supernova
+(e.g., via armed deep space probe) marks an extra klingon as dead. If you
+later kill all remaining klingons in one turn, the game becomes unwinnable
+with -1 klingons left.
+
+The attached patch fixes the supernova + supercommander kill detection
+logic similarly to the supernova + commander kill detection logic in both
+the Python version and the C version.
+
+-Scott Wolchok
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/sst-devel/attachments/20130520/c950ee35/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0001-Fix-killing-supercommander-by-supernova.patch
+Type: application/octet-stream
+Size: 1226 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/sst-devel/attachments/20130520/c950ee35/attachment.obj>
+

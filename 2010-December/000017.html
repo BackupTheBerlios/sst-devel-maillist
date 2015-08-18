@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Sst-devel] pychecker cleanup is finished
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sst-devel/2010-December/index.html" >
+   <LINK REL="made" HREF="mailto:sst-devel%40lists.berlios.de?Subject=Re%3A%20%5BSst-devel%5D%20pychecker%20cleanup%20is%20finished&In-Reply-To=%3C4D07E953.7040109%40aknet.ru%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000016.html">
+   <LINK REL="Next"  HREF="000018.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Sst-devel] pychecker cleanup is finished</H1>
+    <B>Stas Sergeev</B> 
+    <A HREF="mailto:sst-devel%40lists.berlios.de?Subject=Re%3A%20%5BSst-devel%5D%20pychecker%20cleanup%20is%20finished&In-Reply-To=%3C4D07E953.7040109%40aknet.ru%3E"
+       TITLE="[Sst-devel] pychecker cleanup is finished">stsp at aknet.ru
+       </A><BR>
+    <I>Tue Dec 14 23:01:55 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000016.html">[Sst-devel] pychecker cleanup is finished
+</A></li>
+        <LI>Next message: <A HREF="000018.html">[Sst-devel] pychecker cleanup is finished
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#17">[ date ]</a>
+              <a href="thread.html#17">[ thread ]</a>
+              <a href="subject.html#17">[ subject ]</a>
+              <a href="author.html#17">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>15.12.2010 00:31, Eric Raymond wrote:
+&gt;<i> Stas Sergeev&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/sst-devel">stsp at aknet.ru</A>&gt;:
+</I>&gt;&gt;<i> 14.12.2010 14:30, Eric Raymond wrote:
+</I>&gt;&gt;&gt;<i> Weird. Why don't I hit these?
+</I>&gt;&gt;&gt;<i> Fixed now.
+</I>&gt;&gt;<i> Is there any way to get them all automatically?
+</I>&gt;<i> I've run pychecker.  That's about the most that is possible
+</I>&gt;<i> without human intervention.
+</I>Then python is in real troubles...
+
+Traceback (most recent call last):
+   File &quot;./sst.py&quot;, line 6331, in &lt;module&gt;
+     makemoves()
+   File &quot;./sst.py&quot;, line 5924, in makemoves
+     warp(wcourse=None, involuntary=False)
+   File &quot;./sst.py&quot;, line 3904, in warp
+     imove(course, noattack=False)
+   File &quot;./sst.py&quot;, line 3523, in imove
+     icourse.distance = 
+icourse.distance*(scheduled(FTBEAM)-game.state.date)/game.optime + 0.1
+AttributeError: class course has no attribute 'distance'
+
+
+&gt;&gt;<i> And i've fixed a few myself just now, but the game is still
+</I>&gt;&gt;<i> unplayable. Scanner is really in need of being fixed! Can we
+</I>&gt;&gt;<i> revert to the old logic, where &quot;m&quot; was &quot;move&quot;, &quot;t&quot; was &quot;torpedo&quot;,
+</I>&gt;&gt;<i> etc? The smart abbreviations do not help at all because of the
+</I>&gt;&gt;<i> collisions:
+</I>&gt;&gt;<i> Commands with prefix 't': TORPEDO TRANSPORT
+</I>&gt;<i> I'm not necessarily objecting, but how would reverting to the old logic help?
+</I>There are 2 things that needs to be reverted.
+One, the command collision, is removed by the attached patch.
+Another one - the commands &gt;=ABANDON were, IIRC, never abbreviated
+in the past.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: a.diff
+Type: text/x-patch
+Size: 640 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sst-devel/attachments/20101215/16cafb65/attachment.bin">https://lists.berlios.de/pipermail/sst-devel/attachments/20101215/16cafb65/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000016.html">[Sst-devel] pychecker cleanup is finished
+</A></li>
+	<LI>Next message: <A HREF="000018.html">[Sst-devel] pychecker cleanup is finished
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#17">[ date ]</a>
+              <a href="thread.html#17">[ thread ]</a>
+              <a href="subject.html#17">[ subject ]</a>
+              <a href="author.html#17">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sst-devel">More information about the Sst-devel
+mailing list</a><br>
+</body></html>

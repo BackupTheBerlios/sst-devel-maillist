@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Sst-devel] Patch for killing supercommander by supernova
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sst-devel/2013-May/index.html" >
+   <LINK REL="made" HREF="mailto:sst-devel%40lists.berlios.de?Subject=Re%3A%20%5BSst-devel%5D%20Patch%20for%20killing%20supercommander%20by%20supernova&In-Reply-To=%3CCAMrm7HOw7HAxu2Dd3hiDcL4EJv7iRzhSNJdc4QVasoKeWCx9Rg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Sst-devel] Patch for killing supercommander by supernova</H1>
+    <B>Scott Wolchok</B> 
+    <A HREF="mailto:sst-devel%40lists.berlios.de?Subject=Re%3A%20%5BSst-devel%5D%20Patch%20for%20killing%20supercommander%20by%20supernova&In-Reply-To=%3CCAMrm7HOw7HAxu2Dd3hiDcL4EJv7iRzhSNJdc4QVasoKeWCx9Rg%40mail.gmail.com%3E"
+       TITLE="[Sst-devel] Patch for killing supercommander by supernova">scott at wolchok.org
+       </A><BR>
+    <I>Tue May 21 05:23:27 CEST 2013</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi, I ran across a bug where killing the supercommander with a supernova
+(e.g., via armed deep space probe) marks an extra klingon as dead. If you
+later kill all remaining klingons in one turn, the game becomes unwinnable
+with -1 klingons left.
+
+The attached patch fixes the supernova + supercommander kill detection
+logic similarly to the supernova + commander kill detection logic in both
+the Python version and the C version.
+
+-Scott Wolchok
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sst-devel/attachments/20130520/c950ee35/attachment.html">https://lists.berlios.de/pipermail/sst-devel/attachments/20130520/c950ee35/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0001-Fix-killing-supercommander-by-supernova.patch
+Type: application/octet-stream
+Size: 1226 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/sst-devel/attachments/20130520/c950ee35/attachment.obj">https://lists.berlios.de/pipermail/sst-devel/attachments/20130520/c950ee35/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sst-devel">More information about the Sst-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Sst-devel] Welcome, and various issues relating to Super Star Trek
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/sst-devel/2006-September/index.html" >
+   <LINK REL="made" HREF="mailto:sst-devel%40lists.berlios.de?Subject=Re%3A%20%5BSst-devel%5D%20Welcome%2C%20and%20various%20issues%20relating%20to%20Super%20Star%20Trek&In-Reply-To=%3C200609112014.k8BKEf82014198%40snark.thyrsus.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Sst-devel] Welcome, and various issues relating to Super Star Trek</H1>
+    <B>Eric S. Raymond</B> 
+    <A HREF="mailto:sst-devel%40lists.berlios.de?Subject=Re%3A%20%5BSst-devel%5D%20Welcome%2C%20and%20various%20issues%20relating%20to%20Super%20Star%20Trek&In-Reply-To=%3C200609112014.k8BKEf82014198%40snark.thyrsus.com%3E"
+       TITLE="[Sst-devel] Welcome, and various issues relating to Super Star Trek">esr at thyrsus.com
+       </A><BR>
+    <I>Mon Sep 11 22:14:41 CEST 2006</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000001.html">[Sst-devel] SSTK now has a web page
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>THE PEOPLE:
+
+  Dave Matuszek -- one of the principal co-authors of the original FORTAN SST
+
+  Tom Almy -- FORTRAN-to-C translator and keeper of the flame for many years
+
+  Stas Sergeev -- author of the curses interface in SST2K
+
+  Eric Raymond -- curator of the Retrocomputing Museum
+
+THE PURPOSE:
+
+SST is both historically important and a game that retains considerable
+play value even in our graphics- and GUI-obsessed age.  The aims of the
+SST2K project are these:
+
+1) Support something as close to the 'original' SST experience as
+   reasonably possible, so people can get a feel for life in the day of
+   the TTY and understand the game's place in history.
+
+2) Support updated interfaces in more modern styles while preserving
+   the logic, humor, and design philosophy of the original game.
+
+3) Respectfully carry forward the tradition, improving the game.
+
+THE STATE OF PLAY:
+
+Stas and I have done one release, 2.0.1, since reviving the code.  The
+major feature addition has been a curses-based interface.  
+
+I have refactored the heck out of the internals, cleaned up many
+FORTRANisms, and separated the game engine from the UI; I believe the
+code is now reasonably clean C and long-term maintainable.
+
+There are no known bugs.  The original code seems to have had
+an exceptionally low defect rate; Stas and I believe we've
+succeeded in not increasing it.  We did have to fix a small 
+handful of bugs we introduced ourselves.
+
+The project needs a Web page at Berlios.
+
+THE LICENSING SITUATION:
+
+The license I found on the program documentation reads 
+
+    Permission is hereby granted for the copying, distribution,
+    modification and use of this program and associated documentation
+    for recreational purposes, provided that all references to the
+    authors are retained.  However, permission is not and will not be
+    granted for the sale or promotional use of this program or program
+    documentation, or for use in any situation in which profit may be
+    considered an objective, since it is the desire of the authors to
+    respect the copyrights of the originators of Star Trek.
+
+The &quot;or for use in any situation in which profit may be considered an 
+objective&quot; is a problem, because it conflicts with the Open Source
+Definition.  OSD forbids such restrictions because there is no
+bright-line test for commercial use.  To see why this is a problem,
+consider whether or not this license bars redistribution of SST
+on the same CD-ROM as a for-profit Linux distribution.
+
+One module formerly included with the source, conio.[ch], had an LGPL 
+license on it.  However, the SST code no longer uses it 
+
+I would like to replace the SST license with BSD, and add the following
+language to the documentation:
+
+    This game is intended as a tribute, not an act of piracy; the authors
+    have every wish to respect the copyrights, trademarks, and other legal
+    and moral rights of the originators of Star Trek.  We recognize and
+    support their right under the Berne Convention to recover damages for
+    any uses of this program which divert profits from them or compromise
+    their legitimate interest in protecting their copyrights and
+    trademarks.
+
+THE ROADMAP FOR THE FUTURE:
+
+I want to add a &quot;wayback machine&quot; option that can restrict the game to
+the original pre-Super featues as described by Dave Matuszek.
+
+I've separated the game engine from its interface pretty cleanly --
+the evidence for this is that all the differences between the curses
+and tty modes are isolated in io.c.  Next step: add a GUI.
+
+WHAT YOU CAN DO:
+
+If you are an original coauthor:
+
+1. Download sst from &lt;<A HREF="https://developer.berlios.de/projects/sst/">https://developer.berlios.de/projects/sst/</A>&gt;.
+
+2. Play it and critique it.  If any of the SST2K changes seem
+   inauthentic, say so.
+
+3. If you can find Paul Reynolds, Don Smith. Jim Korp or Grady Hicks,
+   try to bring them in on this project.
+
+4. Read the history section in the documentation.  Correct as necessary.  The
+   Wikipedia says &quot;According to the documentation, it was inspired by
+   and rather loosely based on an earlier game programmed in BASIC by
+   Jim Korp and Grady Hicks at The University of Texas at Austin,
+   which in turn was derived from a still earlier version written at
+   Penn State University&quot;  Is this true?
+
+If you are Tom Almy:
+
+1.  This version is immediately descended from the one you have made available
+    at &lt;<A HREF="http://www.almy.us/sst.html">http://www.almy.us/sst.html</A>&gt;.  Can we interest you in porting
+    SST2K to MacOS X and Windows consoles?
+
+2. We believe, but are not absolutely certain, that we have your June
+   2004 fixes.  Would you please check?
+-- 
+		&lt;a href=&quot;<A HREF="http://www.catb.org/~esr/">http://www.catb.org/~esr/</A>&quot;&gt;Eric S. Raymond&lt;/a&gt;
+
+The kind of charity you can force out of people nourishes about as much as
+the kind of love you can buy --- and spreads even nastier diseases.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000001.html">[Sst-devel] SSTK now has a web page
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/sst-devel">More information about the Sst-devel
+mailing list</a><br>
+</body></html>
